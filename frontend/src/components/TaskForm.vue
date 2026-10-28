@@ -1,12 +1,26 @@
 <script setup>
-import { reactive } from 'vue'
+import { onMounted, reactive } from 'vue'
+
+const props = defineProps({
+  initialTask: { type: Object, default: null },
+})
 
 const emit = defineEmits(['submit'])
 
 const form = reactive({
   title: '',
   description: '',
+  priority: 'MEDIUM',
+  dueDate: '',
 })
+
+onMounted(() => {
+  if (props.initialTask) {
+    form.priority = props.initialTask.priority || 'MEDIUM'
+    form.dueDate = props.initialTask.dueDate || ''
+  }
+})
+
 function submit() {
   if (!form.title.trim()) return
 
@@ -14,9 +28,13 @@ function submit() {
     title: form.title.trim(),
     description: form.description.trim(),
     completed: false,
+    priority: form.priority,
+    dueDate: form.dueDate || null,
   })
   form.title = ''
   form.description = ''
+  form.priority = 'MEDIUM'
+  form.dueDate = ''
 }
 </script>
 
@@ -50,6 +68,20 @@ function submit() {
         @keydown.meta.enter="submit"
         @keydown.ctrl.enter="submit"
       />
+    </label>
+
+    <label>
+      <span>우선순위</span>
+      <select v-model="form.priority">
+        <option value="LOW">낮음 (LOW)</option>
+        <option value="MEDIUM">보통 (MEDIUM)</option>
+        <option value="HIGH">높음 (HIGH)</option>
+      </select>
+    </label>
+
+    <label>
+      <span>마감일</span>
+      <input type="date" v-model="form.dueDate" />
     </label>
 
     <button class="primary-button" type="submit" :disabled="!form.title.trim()">

@@ -1,0 +1,334 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 `Priority` 열거형 신규 생성": [
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166126129
+      },
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166133097
+      },
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166239796
+      }
+    ],
+    "1.2 `TaskItem` 엔티티에 `priority`, `dueDate` 필드 추가": [
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166126170
+      },
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166242860
+      },
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166332729
+      }
+    ],
+    "1.3 `TaskRequest` 레코드에 `priority`, `dueDate` 필드 추가": [
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166126212
+      },
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166336153
+      },
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166398187
+      }
+    ],
+    "1.4 `TaskResponse` 레코드에 `priority`, `dueDate`, `overdue` 필드 추가 및 `from()` 팩터리 수정": [
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166126246
+      },
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166338996
+      },
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166401080
+      }
+    ],
+    "2.1 `TaskService.create()` 메서드에 `priority` 기본값 처리 및 `dueDate` 전달 추가": [
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166126279
+      },
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166404455
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166764643
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793167410174
+      }
+    ],
+    "2.2 `TaskService.update()` 메서드에 `priority` 기존 값 유지 및 `dueDate` 전달 추가": [
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166126313
+      },
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166407253
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166767726
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793167413198
+      }
+    ],
+    "2.3 `ApiExceptionHandler`에 `HttpMessageNotReadableException` 핸들러 추가": [
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166126345
+      },
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166410278
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166770638
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793167416289
+      }
+    ],
+    "3. 체크포인트 — 백엔드 기본 빌드 확인": [
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166126379
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793167425954
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793167501174
+      }
+    ],
+    "4.1 `TaskServiceTest`에 기존 동작 유지 확인 및 `priority` / `dueDate` / `overdue` 단위 테스트 추가": [
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166126419
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793167504426
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793168768706
+      }
+    ],
+    "5. 체크포인트 — 백엔드 전체 테스트 통과 확인": [
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166126461
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793168778103
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793168838100
+      }
+    ],
+    "6.1 `TaskCard.vue` — `priority`, `dueDate`, `overdue` 표시 및 편집 모드 확장": [
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166126489
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793167507190
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793168771697
+      }
+    ],
+    "6.2 `TaskForm.vue` — `priority`, `dueDate` 입력 필드 추가": [
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166126522
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793167510005
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793168774609
+      }
+    ],
+    "6.3 `App.vue` — 우선순위 필터 및 마감 임박 순 정렬 추가": [
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166126555
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793168841290
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793169531844
+      }
+    ],
+    "7.1 Vitest 및 fast-check 의존성 추가": [
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166126587
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793168844532
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793169535005
+      }
+    ],
+    "8.1 `pnpm run build`로 프런트엔드 빌드가 오류 없이 완료되는지 확인한다.": [
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166126618
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793169549111
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793169632736
+      }
+    ],
+    "9. 최종 체크포인트 — 전체 테스트 통과 확인": [
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166126646
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793169636228
+      },
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793169711796
+      }
+    ],
+    "1. 백엔드 모델 계층 구축": [
+      {
+        "executionId": "2ab8aee9-caa8-46c4-a0e6-5499ba996e1f",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793166401108
+      }
+    ],
+    "2. 백엔드 서비스 및 예외 처리 변경": [
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793167416326
+      }
+    ],
+    "4. 백엔드 테스트 작성": [
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793168768755
+      }
+    ],
+    "6. 프런트엔드 컴포넌트 변경": [
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793169531886
+      }
+    ],
+    "7. 프런트엔드 테스트 환경 구성 및 속성 기반 테스트 작성": [
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793169535050
+      }
+    ],
+    "8. 프런트엔드 빌드 검증": [
+      {
+        "executionId": "92f2fc11-6caf-4fae-90c6-b521ceded038",
+        "chatSessionId": "sess_dc927a6c-146a-490a-b885-88b7e51be7be",
+        "timestamp": 1793169632778
+      }
+    ]
+  }
+}

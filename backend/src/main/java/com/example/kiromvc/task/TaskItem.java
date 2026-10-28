@@ -2,6 +2,8 @@ package com.example.kiromvc.task;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -10,6 +12,7 @@ import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 
 import java.time.Instant;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "task_items")
@@ -28,6 +31,13 @@ public class TaskItem {
     @Column(nullable = false)
     private boolean completed;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 10)
+    private Priority priority;
+
+    @Column
+    private LocalDate dueDate;
+
     @Column(nullable = false, updatable = false)
     private Instant createdAt;
 
@@ -41,6 +51,16 @@ public class TaskItem {
         this.title = title;
         this.description = description;
         this.completed = completed;
+        this.priority = Priority.MEDIUM;
+        this.dueDate = null;
+    }
+
+    public TaskItem(String title, String description, boolean completed, Priority priority, LocalDate dueDate) {
+        this.title = title;
+        this.description = description;
+        this.completed = completed;
+        this.priority = priority;
+        this.dueDate = dueDate;
     }
 
     @PrePersist
@@ -61,6 +81,14 @@ public class TaskItem {
         this.completed = completed;
     }
 
+    public void update(String title, String description, boolean completed, Priority priority, LocalDate dueDate) {
+        this.title = title;
+        this.description = description;
+        this.completed = completed;
+        this.priority = priority;
+        this.dueDate = dueDate;
+    }
+
     public Long getId() {
         return id;
     }
@@ -75,6 +103,14 @@ public class TaskItem {
 
     public boolean isCompleted() {
         return completed;
+    }
+
+    public Priority getPriority() {
+        return priority;
+    }
+
+    public LocalDate getDueDate() {
+        return dueDate;
     }
 
     public Instant getCreatedAt() {

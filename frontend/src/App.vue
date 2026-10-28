@@ -8,15 +8,40 @@ const tasks = ref([])
 const loading = ref(true)
 const error = ref('')
 const filter = ref('all')
+const priorityFilter = ref('all')
+const sortBy = ref('createdAt')
 
 const completedCount = computed(() => tasks.value.filter((task) => task.completed).length)
 const progress = computed(() =>
   tasks.value.length ? Math.round((completedCount.value / tasks.value.length) * 100) : 0,
 )
-const filteredTasks = computed(() => {
-  if (filter.value === 'active') return tasks.value.filter((task) => !task.completed)
-  if (filter.value === 'done') return tasks.value.filter((task) => task.completed)
-  return tasks.value
+const sortedAndFilteredTasks = computed(() => {
+  // 1단계: 완료 상태 필터
+  let result = tasks.value
+  if (filter.value === 'active') result = result.filter((t) => !t.completed)
+  else if (filter.value === 'done') result = result.filter((t) => t.completed)
+
+  // 2단계: 우선순위 필터
+  if (priorityFilter.value !== 'all') {
+    result = result.filter((t) => t.priority === priorityFilter.value)
+  }
+
+  // 3단계: 정렬
+  if (sortBy.value === 'dueDate') {
+    result = [...result].sort((a, b) => {
+      if (a.dueDate === null && b.dueDate === null) {
+        // 둘 다 null이면 createdAt 내림차순
+        return new Date(b.createdAt) - new Date(a.createdAt)
+      }
+      if (a.dueDate === null) return 1   // null은 뒤로
+      if (b.dueDate === null) return -1  // null은 뒤로
+      const diff = new Date(a.dueDate) - new Date(b.dueDate)
+      if (diff !== 0) return diff
+      return new Date(b.createdAt) - new Date(a.createdAt) // 동일 dueDate면 createdAt 내림차순
+    })
+  }
+
+  return result
 })
 
 async function loadTasks() {
@@ -126,6 +151,26 @@ onMounted(loadTasks)
                 {{ option.label }}
               </button>
             </div>
+            <div class="filters priority-filters" aria-label="우선순위 필터">
+              <button
+                v-for="option in [
+                  { value: 'all', label: '전체 우선순위' },
+                  { value: 'LOW', label: 'LOW' },
+                  { value: 'MEDIUM', label: 'MEDIUM' },
+                  { value: 'HIGH', label: 'HIGH' },
+                ]"
+                :key="option.value"
+                type="button"
+                :class="{ active: priorityFilter === option.value }"
+                @click="priorityFilter = option.value"
+              >
+                {{ option.label }}
+              </button>
+            </div>
+            <select v-model="sortBy" aria-label="정렬 기준">
+              <option value="createdAt">기본(등록 순)</option>
+              <option value="dueDate">마감 임박 순</option>
+            </select>
           </div>
 
           <p v-if="error" class="error-message" role="alert">
@@ -134,12 +179,12 @@ onMounted(loadTasks)
           </p>
 
           <div v-if="loading" class="empty-state">작업을 불러오는 중입니다…</div>
-          <div v-else-if="filteredTasks.length === 0" class="empty-state">
+          <div v-else-if="sortedAndFilteredTasks.length === 0" class="empty-state">
             이 조건에 맞는 작업이 없습니다.
           </div>
           <div v-else class="task-list">
             <TaskCard
-              v-for="task in filteredTasks"
+              v-for="task in sortedAndFilteredTasks"
               :key="task.id"
               :task="task"
               @update="updateTask"

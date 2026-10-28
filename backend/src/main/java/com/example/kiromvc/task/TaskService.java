@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
@@ -28,10 +29,14 @@ public class TaskService {
 
     @Transactional
     public TaskResponse create(TaskRequest request) {
+        Priority priority = Optional.ofNullable(request.priority())
+                .orElse(Priority.MEDIUM);
         TaskItem task = new TaskItem(
                 request.title().trim(),
                 normalizeDescription(request.description()),
-                request.completed()
+                request.completed(),
+                priority,
+                request.dueDate()
         );
         return TaskResponse.from(taskRepository.save(task));
     }
@@ -39,10 +44,14 @@ public class TaskService {
     @Transactional
     public TaskResponse update(Long id, TaskRequest request) {
         TaskItem task = getTask(id);
+        Priority priority = Optional.ofNullable(request.priority())
+                .orElse(task.getPriority()); // null이면 기존 값 유지
         task.update(
                 request.title().trim(),
                 normalizeDescription(request.description()),
-                request.completed()
+                request.completed(),
+                priority,
+                request.dueDate()
         );
         return TaskResponse.from(task);
     }
