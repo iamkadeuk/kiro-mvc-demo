@@ -1,0 +1,17 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Spec Markdown check",
+      "trigger": "PostFileSave",
+      "action": {
+        "type": "command",
+        "command": "git diff --check -- .kiro/specs"
+      },
+      "description": "Spec Markdown 저장 시 공백 오류만 검사합니다. AI 호출 없이 실행됩니다.",
+      "matcher": "\\.kiro/specs/.*\\.md$",
+      "timeout": 10,
+      "enabled": true
+    }
+  ]
+}
