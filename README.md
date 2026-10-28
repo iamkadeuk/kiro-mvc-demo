@@ -4,7 +4,7 @@ Kiro의 코드 탐색·생성·리팩터링 기능을 시험하기 위한 작은
 
 ## 기술 스택
 
-- Frontend: Vue 3, Vite
+- Frontend: Vue 3, Vite, Vitest, fast-check
 - Backend: Java 21, Spring Boot 4, Spring MVC, Spring Data JPA
 - Database: H2 인메모리 DB
 - 실행 옵션: 로컬 개발 서버 또는 Docker Compose
@@ -28,7 +28,12 @@ Browser
 - 할 일 목록 조회
 - 할 일 생성·수정·삭제
 - 완료 상태 토글
-- 전체/진행 중/완료 필터
+- **우선순위(LOW / MEDIUM / HIGH) 지정** — 미지정 시 MEDIUM으로 자동 설정
+- **마감일(Due Date) 설정** — 선택 입력, `YYYY-MM-DD` 형식
+- **기한 초과(Overdue) 표시** — 마감일이 지난 미완료 작업을 카드에서 시각적으로 구분
+- 완료 상태 필터 (전체 / 진행 중 / 완료)
+- **우선순위 필터** (전체 / LOW / MEDIUM / HIGH)
+- **마감 임박 순 정렬** — dueDate 오름차순, null은 뒤, 동일 날짜는 등록 역순
 - 입력값 검증과 RFC 9457 Problem Details 형식 오류 응답
 - 예제 데이터 자동 등록
 
@@ -77,26 +82,50 @@ Vite 개발 서버가 `/api` 요청을 `localhost:8080`으로 프록시합니다
 {
   "title": "Kiro로 서비스 계층 리팩터링",
   "description": "중복 검증 로직을 분리한다.",
-  "completed": false
+  "completed": false,
+  "priority": "HIGH",
+  "dueDate": "2025-12-31"
 }
+```
+
+`priority`와 `dueDate`는 선택 입력입니다. `priority`를 생략하면 `MEDIUM`으로 저장되고, `dueDate`를 생략하면 `null`로 저장됩니다. 기존 클라이언트도 두 필드 없이 그대로 호출할 수 있습니다.
+
+응답 예시:
+
+```json
+{
+  "id": 1,
+  "title": "Kiro로 서비스 계층 리팩터링",
+  "description": "중복 검증 로직을 분리한다.",
+  "completed": false,
+  "priority": "HIGH",
+  "dueDate": "2025-12-31",
+  "overdue": false,
+  "createdAt": "2025-01-01T00:00:00Z",
+  "updatedAt": "2025-01-01T00:00:00Z"
+}
+```
+
+## 테스트
+
+```bash
+# 백엔드 단위 테스트
+cd backend
+mvn test
+
+# 프런트엔드 테스트
+cd frontend
+pnpm run test
+
+# 프런트엔드 빌드 검증
+cd frontend
+pnpm run build
 ```
 
 ## Kiro에서 시험해 볼 프롬프트
 
 1. `TaskController부터 데이터베이스까지 요청 흐름을 설명해 줘.`
-2. `할 일에 dueDate 필드를 추가하고 프런트엔드 입력 UI도 수정해 줘.`
+2. `priority 필드에 CRITICAL 값을 추가하고 프런트엔드 필터도 확장해 줘.`
 3. `제목으로 검색하는 API와 검색창을 추가해 줘.`
 4. `TaskService의 테스트 케이스를 더 만들어 줘.`
 5. `H2 대신 PostgreSQL을 사용하도록 Docker Compose를 바꿔 줘.`
-
-## 테스트
-
-```bash
-cd backend
-mvn test
-
-cd ../frontend
-pnpm install --frozen-lockfile
-pnpm run build
-```
-
